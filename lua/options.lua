@@ -17,6 +17,7 @@ local options = {
 	relativenumber = true,
   clipboard = "unnamedplus",
   fileencoding = "utf-8",
+  shell = 'powershell'
 }
 
 vim.opt.shortmess:append "c"
