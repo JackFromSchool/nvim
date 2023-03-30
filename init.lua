@@ -45,6 +45,9 @@ require("symbols-outline").setup({
 -- Auto Pairs
 require('mini.pairs').setup()
 
+-- Leap
+require('leap').add_default_mappings()
+
 -- lsp
 local lsp = require('lsp-zero').preset({
   name = 'minimal',

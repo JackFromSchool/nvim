@@ -68,6 +68,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-endwise'
   use 'simrat39/symbols-outline.nvim'
   use { 'echasnovski/mini.pairs', branch = 'stable' }
+  use 'ggandor/leap.nvim'
 end)
 
 
