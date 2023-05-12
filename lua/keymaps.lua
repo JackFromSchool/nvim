@@ -30,6 +30,9 @@ keymap("n", "<leader>x", ":NeoTreeClose<CR>", opts)
 -- Outline --
 keymap("n", "<leader>o", ":SymbolsOutline<CR>", opts)
 
+-- Quick Terminal --
+keymap("n", "<leader>t", ":terminal<CR>", opts)
+
 -- Remove Control Z --
 keymap("", "<C-z>", "<Nop", opts)
 

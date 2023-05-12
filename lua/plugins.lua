@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
   use {
      "folke/twilight.nvim",
      config = function ()
-      require("twilight").setup {} 
+      require("twilight").setup {}
      end
   }
   use({
@@ -69,6 +69,7 @@ return require('packer').startup(function(use)
   use 'simrat39/symbols-outline.nvim'
   use { 'echasnovski/mini.pairs', branch = 'stable' }
   use 'ggandor/leap.nvim'
+  use 'mfussenegger/nvim-dap'
 end)
 
 

@@ -19,7 +19,7 @@ require('bufferline').setup{
    {
      filetype = "NvimTree",
      text = "File Explorer",
-     text_align = "center",
+    text_align = "center",
      separator = true
    }
    },
@@ -56,7 +56,35 @@ local lsp = require('lsp-zero').preset({
   suggest_lsp_servers = false,
 })
 
+require('mason').setup()
+
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
 
-lsp.setup()
+-- dap 
+require('dap').adapters.lldb = {
+   type = "executable",
+   command = "../nvim-data/mason/bin/codelldb.cmd",
+   name = "lldb",
+}
+
+local lldb = {
+	name = "Launch lldb",
+	type = "lldb", -- matches the adapter
+	request = "launch", -- could also attach to a currently running process
+	program = function()
+		return vim.fn.input(
+			"Path to executable: ",
+			vim.fn.getcwd() .. "/",
+			"file"
+		)
+	end,
+	cwd = "${workspaceFolder}",
+	stopOnEntry = false,
+	args = {},
+	runInTerminal = false,
+}
+
+require('dap').configurations.rust = {
+   lldb
+}
