@@ -1,4 +1,3 @@
-
 -- Lazy Bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -163,7 +162,127 @@ local plugins = {
          { "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", desc = "AddHarpoon" },
          { "<leader>ht", "<cmd>lua require('harpoon.term').gotoTerminal(1)<CR>", desc = "HarpoonTerminal" },
       }
+   },
+
+   {
+      "iamcco/markdown-preview.nvim",
+      build = function()
+         vim.fn["mkdp#util#install"]()
+      end,
+      init = function()
+         vim.g.mkdp_filetypes = { "markdown" }
+      end,
+      ft = "markdown",
+   },
+
+   {
+      "cljoly/telescope-repo.nvim",
+      dependencies = {
+         "nvim-telescope/telescope.nvim",
+      },
+      config = function()
+         require("telescope").load_extension"repo"
+      end,
+      keys = {
+         { "<leader>fr", "<cmd>lua require('telescope').extensions.repo.list{}<CR>", desc = "TelescopeRepo" },
+      },
+   },
+
+   {
+      "sunjon/shade.nvim",
+      config = function()
+         require("shade").setup({})
+      end,
+   },
+
+   {
+      "winston0410/range-highlight.nvim",
+      dependencies = {
+         "winston0410/cmd-parser.nvim",
+      },
+      config = function()
+         require("range-highlight").setup {}
+      end,
+   },
+
+   {
+      "max397574/colortils.nvim",
+      config = function()
+         require("colortils").setup()
+      end,
+   },
+
+   {
+      "akinsho/bufferline.nvim",
+      dependencies = {
+         "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+         require("bufferline").setup{}
+      end
+   },
+
+   {
+      "RRethy/vim-illuminate",
+      config = function()
+         require("illuminate")
+      end
+   },
+
+   {
+      "jbyuki/nabla.nvim",
+      keys = {
+         { "<leader>p", "<cmd>lua require('nabla').popup()<CR>", desc = "EnableNabla" }
+      }
+   },
+
+   {
+      "AckslD/nvim-FeMaco.lua",
+      config = function()
+         require("femaco").setup({})
+      end,
+      ft = "markdown",
+   },
+
+   {
+      "lewis6991/gitsigns.nvim",
+      config = function()
+         require("gitsigns").setup()
+      end
+   },
+
+   "lukas-reineke/indent-blankline.nvim",
+
+   "Eandrju/cellular-automaton.nvim",
+
+   "shortcuts/no-neck-pain.nvim",
+
+   "andweeb/presence.nvim",
+
+   {
+      "ggandor/leap.nvim",
+      dependencies = {
+         "tpope/vim-repeat",
+      },
+      config = function()
+         require("leap").add_default_mappings()
+      end,
+   },
+
+   {
+      "epwalsh/obsidian.nvim",
+      dependencies = {
+         "nvim-lua/plenary.nvim",
+         "hrsh7th/nvim-cmp",
+      },
+      opts = {
+         dir = "C:\\Users\\jackp\\OneDrive\\Documents\\Main-Vault",
+         completion = {
+            nvim_cmp = true,
+         },
+      }
    }
+
 }
 
 require("lazy").setup(plugins)
