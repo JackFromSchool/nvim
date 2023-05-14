@@ -24,11 +24,11 @@ keymap("n", "<C-h>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-l>", ":vertical resize +2<CR>", opts)
 
 -- Better Lex --
-keymap("n", "<leader>e", ":NeoTreeFocus<CR>", opts)
-keymap("n", "<leader>x", ":NeoTreeClose<CR>", opts)
+--keymap("n", "<leader>e", ":NeoTreeFocus<CR>", opts)
+--keymap("n", "<leader>x", ":NeoTreeClose<CR>", opts)
 
 -- Outline --
-keymap("n", "<leader>o", ":SymbolsOutline<CR>", opts)
+--keymap("n", "<leader>o", ":SymbolsOutline<CR>", opts)
 
 -- Quick Terminal --
 keymap("n", "<leader>t", ":terminal<CR>", opts)
@@ -37,10 +37,10 @@ keymap("n", "<leader>t", ":terminal<CR>", opts)
 keymap("", "<C-z>", "<Nop", opts)
 
 -- Telescope Binding --
-local builtin = require('telescope.builtin')
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+--local builtin = require('telescope.builtin')
+--vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+--vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+--vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 
 -- Insert --
 -- Better Esc --
