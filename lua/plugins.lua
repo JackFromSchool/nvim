@@ -14,14 +14,26 @@ vim.opt.rtp:prepend(lazypath)
 
 --Lazy Plugins
 local plugins = {
+   -- {
+   --    "sainnhe/sonokai",
+   --    lazy = false,
+   --    priority = 1000,
+   --    config = function()
+   --       vim.cmd([[let g:sonokai_style = 'shusia']])
+   --       vim.cmd([[let g:sonokai_better_performance = 1]])
+   --       vim.cmd([[colorscheme sonokai]])
+   --    end,
+   -- },
+   
    {
-      "sainnhe/sonokai",
+      "sainnhe/everforest",
       lazy = false,
       priority = 1000,
       config = function()
-         vim.cmd([[let g:sonokai_style = 'shusia']])
-         vim.cmd([[let g:sonokai_better_performance = 1]])
-         vim.cmd([[colorscheme sonokai]])
+         vim.cmd([[set background=dark]])
+         vim.cmd([[set termguicolors]])
+         vim.cmd([[let g:everforest_better_performance = 1]])
+         vim.cmd([[colorscheme everforest]])
       end,
    },
 
@@ -35,7 +47,7 @@ local plugins = {
       config = function()
          require('lualine').setup({
             options = {
-               theme = 'sonokai',
+               theme = 'everforest',
             },
          })
       end
@@ -54,7 +66,7 @@ local plugins = {
    {
       "neovim/nvim-lspconfig",
       config = function()
-         require("lspconfig")
+         require("plugin_configs/lspconfig")
       end
    },
 
@@ -107,7 +119,12 @@ local plugins = {
       },
    },
 
-   "j-hui/fidget.nvim",
+   {
+      "j-hui/fidget.nvim",
+      config = function()
+         require("fidget").setup{}
+      end,
+   },
 
    {
       "folke/trouble.nvim",
@@ -270,18 +287,86 @@ local plugins = {
    },
 
    {
-      "epwalsh/obsidian.nvim",
+      "stevearc/dressing.nvim",
+      opts = {},
+   },
+
+   {
+      "mfussenegger/nvim-jdtls",
+      ft = "java",
+      config = function()
+         require('jdtls').start_or_attach({
+            cmd = {'C:\\Users\\jackp\\AppData\\Local\\nvim-data\\mason\\bin\\jdtls.cmd'},
+            root_dir = vim.fn.getcwd(),
+         })
+      end
+   },
+
+   {
+      "jinh0/eyeliner.nvim",
+      config = function()
+         require("eyeliner").setup({
+            highlight_on_key = true,
+            dim = true,
+         })
+      end
+   },
+
+   "seandewar/nvimesweeper",
+   
+   {
+      "max397574/better-escape.nvim",
+      config = function()
+         require("better_escape").setup {
+            mapping = {"jk"},
+            vim.o.timeoutlen,
+            clear_empty_lines = false,
+            keys = "<Esc>"
+         }
+      end
+   },
+
+   {
+      "numToStr/Comment.nvim",
+      config = function()
+         require("Comment").setup()
+      end,
+      lazy = false
+   },
+
+   {
+      "kevinhwang91/nvim-ufo",
       dependencies = {
-         "nvim-lua/plenary.nvim",
-         "hrsh7th/nvim-cmp",
+         "kevinhwang91/promise-async",
       },
-      opts = {
-         dir = "C:\\Users\\jackp\\OneDrive\\Documents\\Main-Vault",
-         completion = {
-            nvim_cmp = true,
-         },
+      config = function()
+         vim.o.foldcolumn = '1'
+         vim.o.foldlevel = 99
+         vim.o.foldlevelstart = 99
+         vim.o.foldenable = true
+         require("ufo").setup()
+      end,
+   },
+
+   {
+      "stevearc/oil.nvim",
+      dependencies = {
+         "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+         require("oil").setup()
+      end,
+      keys = {
+         { "-", "<CMD>Oil<CR>", desc = "Open parent directory"},
       }
-   }
+   },
+
+   {
+      "nacro90/numb.nvim",
+      config = function()
+         require("numb").setup()
+      end,
+   },
 
 }
 

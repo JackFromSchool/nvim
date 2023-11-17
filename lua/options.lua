@@ -15,11 +15,10 @@ local options = {
 	updatetime = 300,
 	wrap = false,
 	relativenumber = true,
-  clipboard = "unnamedplus",
-  fileencoding = "utf-8",
-  shell = 'powershell',
-  shellcmdflag = "-c",
-
+   clipboard = "unnamedplus",
+   fileencoding = "utf-8",
+   shell = 'powershell',
+   shellcmdflag = "-c",
 }
 
 vim.opt.shortmess:append "c"
