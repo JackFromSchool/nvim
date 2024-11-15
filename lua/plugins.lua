@@ -108,18 +108,6 @@ local plugins = {
    },
 
    {
-      "simrat39/symbols-outline.nvim",
-      config = function()
-         require("symbols-outline").setup({
-            auto_close = true,
-         })
-      end,
-      keys = {
-         { "<leader>o", ":SymbolsOutline<CR>", desc = "Outline" },
-      },
-   },
-
-   {
       "j-hui/fidget.nvim",
       config = function()
          require("fidget").setup{}
@@ -128,17 +116,22 @@ local plugins = {
 
    {
       "folke/trouble.nvim",
+      version = "3.6.0",
+      opts = {},
       dependencies = {
          "nvim-tree/nvim-web-devicons",
       },
+      cmd = "Trouble",
       keys = {
-         { "<leader>ti", ":TroubleToggle document_diagnostics<cr>", desc = "TroubleDiagnostics" },
+         { "<leader>ti", "<cmd>Trouble diagnostics toggle<CR>", desc = "Toggle Trouble Diagnostics" },
+         { "<leader>to", "<cmd>Trouble lsp toggle focus=false win.position=right<CR>", desc = "Toggle Trouble LSP Tools"}
       },
    },
 
    {
       "nvim-treesitter/nvim-treesitter",
       config = function()
+         require("nvim-treesitter.install").compilers = { "clang" }
          require("nvim-treesitter.configs").setup {
             auto_install = true,
          }
@@ -203,13 +196,6 @@ local plugins = {
       keys = {
          { "<leader>fr", "<cmd>lua require('telescope').extensions.repo.list{}<CR>", desc = "TelescopeRepo" },
       },
-   },
-
-   {
-      "sunjon/shade.nvim",
-      config = function()
-         require("shade").setup({})
-      end,
    },
 
    {
@@ -318,10 +304,15 @@ local plugins = {
       "max397574/better-escape.nvim",
       config = function()
          require("better_escape").setup {
-            mapping = {"jk"},
             vim.o.timeoutlen,
-            clear_empty_lines = false,
-            keys = "<Esc>"
+            default_mappings = true,
+            mappings = {
+               i = {
+                  j = {
+                     k = "<Esc>",
+                  },
+               },
+            },
          }
       end
    },
@@ -366,6 +357,11 @@ local plugins = {
       config = function()
          require("numb").setup()
       end,
+   },
+
+   {
+      "lervag/vimtex",
+      lazy = false,
    },
 
 }
