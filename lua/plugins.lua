@@ -375,6 +375,30 @@ local plugins = {
       lazy = false,
    },
 
+   {
+      "stevearc/conform.nvim",
+      event = { "BufWritePre" },
+      cmd = { "ConformInfo" },
+      keys = {
+         {
+            "<leader>fm",
+            function()
+               require("conform").format({ async = true })
+            end,
+            mode = "",
+            desc = "Format Buffer",
+         },
+      },
+      opts = {
+         formatters_by_ft = {
+            c = { "clang-format" },
+            h = { "clang-format" },
+            cpp = { "clang-format" },
+            hpp = { "clang-format" },
+         }
+      }
+   }
+
 }
 
 require("lazy").setup(plugins)
