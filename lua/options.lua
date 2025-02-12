@@ -6,8 +6,8 @@ local options = {
 	splitright = true,
 	cursorline = true,
 	number = true,
-	tabstop = 3,
-	shiftwidth = 3,
+	tabstop = 4,
+	shiftwidth = 4,
 	expandtab = true,
 	numberwidth = 4,
 	termguicolors = true,
@@ -17,7 +17,7 @@ local options = {
 	relativenumber = true,
    clipboard = "unnamedplus",
    fileencoding = "utf-8",
-   shell = 'powershell',
+   shell = 'bash',
    shellcmdflag = "-c",
 }
 
