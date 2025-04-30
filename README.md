@@ -1,9 +1,3 @@
-This is the config for my neovim rc
+# NVIM Config
 
-$$
-v = v_0 * at
-$$
-
-```lua
-
-```
+Test

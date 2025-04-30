@@ -116,7 +116,6 @@ local plugins = {
 
    {
       "folke/trouble.nvim",
-      version = "3.6.0",
       opts = {},
       dependencies = {
          "nvim-tree/nvim-web-devicons",
@@ -124,7 +123,7 @@ local plugins = {
       cmd = "Trouble",
       keys = {
          { "<leader>ti", "<cmd>Trouble diagnostics toggle<CR>", desc = "Toggle Trouble Diagnostics" },
-         { "<leader>to", "<cmd>Trouble lsp toggle focus=false win.position=right<CR>", desc = "Toggle Trouble LSP Tools"}
+         { "<leader>to", "<cmd>Trouble symbols toggle focus=false<CR>", desc = "Toggle Trouble LSP Tools"}
       },
    },
 
@@ -240,15 +239,8 @@ local plugins = {
    },
 
    {
-      "AckslD/nvim-FeMaco.lua",
-      config = function()
-         require("femaco").setup({})
-      end,
-      ft = "markdown",
-   },
-
-   {
       "lewis6991/gitsigns.nvim",
+      version = "1.0.2",
       config = function()
          require("gitsigns").setup()
       end
@@ -386,7 +378,13 @@ local plugins = {
             hpp = { "clang-format" },
          }
       }
-   }
+   },
+
+   {
+      "m4xshen/hardtime.nvim",
+      dependencies = { "MunifTanjim/nui.nvim" },
+      opts = {}
+   },  
 
 }
 
