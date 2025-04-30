@@ -25,16 +25,27 @@ local plugins = {
    --    end,
    -- },
    
+   -- {
+   --    "sainnhe/everforest",
+   --    lazy = false,
+   --    priority = 1000,
+   --    config = function()
+   --       vim.cmd([[set background=dark]])
+   --       vim.cmd([[set termguicolors]])
+   --       vim.cmd([[let g:everforest_better_performance = 1]])
+   --       vim.cmd([[colorscheme everforest]])
+   --    end,
+   -- },
+   
    {
-      "sainnhe/everforest",
-      lazy = false,
-      priority = 1000,
-      config = function()
-         vim.cmd([[set background=dark]])
-         vim.cmd([[set termguicolors]])
-         vim.cmd([[let g:everforest_better_performance = 1]])
-         vim.cmd([[colorscheme everforest]])
-      end,
+       "rebelot/kanagawa.nvim",
+       lazy = false,
+       priority = 999,
+       config = function()
+          vim.cmd([[set background=dark]])
+          vim.cmd([[set termguicolors]])
+          vim.cmd([[colorscheme kanagawa]])
+       end,
    },
 
    {
