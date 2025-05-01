@@ -36,16 +36,30 @@ local plugins = {
    --       vim.cmd([[colorscheme everforest]])
    --    end,
    -- },
-   
-   {
-       "rebelot/kanagawa.nvim",
-       lazy = false,
-       priority = 999,
-       config = function()
-          vim.cmd([[set background=dark]])
-          vim.cmd([[set termguicolors]])
-          vim.cmd([[colorscheme kanagawa]])
-       end,
+   -- {
+   --     "rebelot/kanagawa.nvim",
+   --     lazy = false,
+   --     priority = 999,
+   --     config = function()
+   --        vim.cmd([[set background=dark]])
+   --        vim.cmd([[set termguicolors]])
+   --        vim.cmd([[colorscheme kanagawa]])
+   --     end,
+   -- },
+    {
+      'sainnhe/gruvbox-material',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.gruvbox_material_enable_italic = true
+        vim.g.gruvbox_material_background = 'hard'
+        vim.g.gruvbox_material_visual = 'green background'
+        vim.cmd([[set background=dark]])
+        vim.cmd([[set termguicolors]])
+        vim.cmd.colorscheme('gruvbox-material')
+      end,
    },
 
    {
@@ -58,7 +72,7 @@ local plugins = {
       config = function()
          require('lualine').setup({
             options = {
-               theme = 'everforest',
+               theme = 'gruvbox-material',
             },
          })
       end
