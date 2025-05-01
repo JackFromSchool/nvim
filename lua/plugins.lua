@@ -395,7 +395,22 @@ local plugins = {
       "m4xshen/hardtime.nvim",
       dependencies = { "MunifTanjim/nui.nvim" },
       opts = {}
-   },  
+   },
+
+   {
+       "kawre/leetcode.nvim",
+       version = "0.3.0",
+       build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+       dependencies = {
+           "nvim-telescope/telescope.nvim",
+           -- "ibhagwan/fzf-lua",
+           "nvim-lua/plenary.nvim",
+           "MunifTanjim/nui.nvim",
+       },
+       opts = {
+           -- configuration goes here
+       },
+   }
 
 }
 
