@@ -410,6 +410,7 @@ local plugins = {
        opts = {
            -- configuration goes here
        },
+       cmd = "Leet",
    }
 
 }
