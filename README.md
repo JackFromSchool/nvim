@@ -42,6 +42,8 @@ browse, and maybe you'll get some ideas for your own config!
 * Comment.nvim - Comment Tools
 * todo-comments.nvim - Nice TODO Comments
 * gitsigns.nvim - Git Blame
+* quick.nvim - Better/Editable Quickfix
+* marks.nvim - Easier Marks
 
 ### Markdown
  
@@ -53,3 +55,8 @@ browse, and maybe you'll get some ideas for your own config!
 * duck.nvim - Fun Duck
 * cellular-automaton.nvim - Cellular Automaton for Code
 
+## Etc.
+
+Some other cool things that I've included:
+    - A bottom pop up terminal, that allows for commands to be sent to it automatically
+    -

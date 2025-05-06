@@ -32,6 +32,7 @@ return {
 		opts = {},
 	},
 
+	-- NOTE: Nice TODO's
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -42,10 +43,25 @@ return {
 		},
 	},
 
+	-- Git Blame
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
 		end,
+	},
+
+	-- Better Quickfix
+	{
+		"stevearc/quicker.nvim",
+		event = "FileType qf",
+		opts = {},
+	},
+
+	-- Easier Marks
+	{
+		"chentoast/marks.nvim",
+		event = "VeryLazy",
+		opts = {},
 	},
 }
