@@ -1,6 +1,8 @@
-local opts = { noremap = true, silent = true }
+--
+-- Keymaps
+--
 
-local term_opts = { silent = true }
+local opts = { noremap = true, silent = true }
 
 -- Short Hand Func --
 local keymap = vim.api.nvim_set_keymap
@@ -41,3 +43,7 @@ keymap("v", "p", '"_dP', opts)
 -- Terminal Escape
 keymap("t", "jk", "<C-\\><C-n>", opts)
 
+-- Quick Write
+keymap("n", "<leader>ww", ":w<CR>", opts)
+keymap("n", "<leader>wa", ":wa<CR>", opts)
+keymap("n", "<leader>wq", ":wq<CR>", opts)
