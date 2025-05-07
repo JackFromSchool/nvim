@@ -47,11 +47,11 @@ opt.fileencoding = "utf-8"
 opt.shellcmdflag = "-c"
 opt.shortmess:append("c")
 
--- If
-if vim.fn.has("win32") then
-	opt.shell = "powershell"
-else
+-- Set terminal
+if vim.fn.has("Unix") then
 	opt.shell = "bash"
+elseif vim.fn.has("win32") then
+	opt.shell = "powershell"
 end
 
 -- Add filetypes

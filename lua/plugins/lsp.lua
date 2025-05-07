@@ -25,6 +25,9 @@ return {
 				"haskell-language-server",
 			},
 		},
+		config = function(_, opts)
+			require("mason").setup(opts)
+		end,
 	},
 	-- Auto initiate LSP's
 	{
@@ -32,20 +35,15 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 		},
-		config = function()
-			require("mason-lspconfig").setup()
-
-			-- Automatically Setup up Servers
-			require("mason-lspconfig").setup_handlers({
-				function(server_name)
-					-- Skip servers here:
-					if server_name == "lua-language-server" then
-						return
-					end
-
-					require("lspconfig")[server_name].setup({})
-				end,
-			})
+		opts = {
+			automatic_enable = {
+				exclude = {
+					"lua-language-server",
+				},
+			},
+		},
+		config = function(_, opts)
+			require("mason-lspconfig").setup(opts)
 		end,
 	},
 
