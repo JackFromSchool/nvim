@@ -48,9 +48,9 @@ opt.shellcmdflag = "-c"
 opt.shortmess:append("c")
 
 -- Set terminal
-if vim.fn.has("Unix") then
+if vim.fn.has("Unix") == 1 then
 	opt.shell = "bash"
-elseif vim.fn.has("win32") then
+elseif vim.fn.has("win32") == 1 then
 	opt.shell = "powershell"
 end
 
