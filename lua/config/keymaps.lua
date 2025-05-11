@@ -41,7 +41,16 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Terminal Escape
-keymap("t", "jk", "<C-\\><C-n>", opts)
+-- HACK: Only sets jk keymap if not in the lazygit terminal
+vim.api.nvim_create_autocmd('TermOpen', {
+   group = vim.api.nvim_create_augroup("termkeymapappend", { clear = true }),
+   callback = function()
+      if vim.bo.filetype == "snacks_terminal" then
+         return
+      end
+      vim.api.nvim_buf_set_keymap(0, "t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
+   end
+})
 
 -- Quick Write
 keymap("n", "<leader>ww", ":w<CR>", opts)

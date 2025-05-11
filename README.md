@@ -17,6 +17,7 @@ browse, and maybe you'll get some ideas for your own config!
     * Bigfile
     * Scroll - Smooth Scrolling
     * Indent - Indent Lines
+    * Lazygit - Integrated Lazygit
 * oil.nvim - Edit Directories like a Buffer
 * telescope.nvim - Fuzzy Find
 
