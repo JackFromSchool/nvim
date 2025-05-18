@@ -45,6 +45,7 @@ browse, and maybe you'll get some ideas for your own config!
 * gitsigns.nvim - Git Blame
 * quick.nvim - Better/Editable Quickfix
 * marks.nvim - Easier Marks
+* toggleterm.nvim - Goated Terminal (I tried doing this on my own but this plugin was better)
 
 ### Markdown
  

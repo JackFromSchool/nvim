@@ -1,4 +1,5 @@
 --
+-- DEPRECIATED
 -- Terminal Tools
 --
 

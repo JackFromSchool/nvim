@@ -65,4 +65,31 @@ return {
       opts = {},
    },
 
+   {
+      'akinsho/toggleterm.nvim',
+      version = "*",
+      event = "VeryLazy",
+      opts = {
+         insert_mappings = false,
+         terminal_mappings = false,
+         size = function(term)
+            if term.direction == "horizontal" then
+               return 15
+            elseif term.direction == "vertical" then
+               return vim.o.columns * 0.4
+            end
+         end
+      },
+      config = function(_, opts)
+         require("toggleterm").setup(opts)
+
+         vim.keymap.set("n", "<leader>tt", function()
+            require('toggleterm').toggle(nil, nil, nil, "horizontal", nil)
+         end, { noremap = true });
+
+         vim.keymap.set("n", "<leader>tf", function()
+            require('toggleterm').toggle(nil, nil, nil, "float", nil)
+         end, { noremap = true });
+      end,
+   },
 }
