@@ -50,7 +50,6 @@ browse, and maybe you'll get some ideas for your own config!
 ### Markdown
  
 * render-markdown.nvim - In Nvim Markdown Rendering
-* autolist.nvim - Better Markdown Listing
 
 ### Fun
 
