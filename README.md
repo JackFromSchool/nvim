@@ -21,6 +21,7 @@ browse, and maybe you'll get some ideas for your own config!
 * oil.nvim - Edit Directories like a Buffer
 * telescope.nvim - Fuzzy Find
 * no-neck-pain.nvim - Zen Mode
+* twighlight.nvim - Dimming
 
 ### LSP
 

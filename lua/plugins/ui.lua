@@ -116,6 +116,12 @@ return {
 			{ "-", "<CMD>Oil<CR>", desc = "Open parent directory." },
 		},
 	},
+
 	-- Zen Mode
 	{ "shortcuts/no-neck-pain.nvim", version = "*" },
+
+	-- Dimming
+	{
+		"folke/twilight.nvim",
+	},
 }
