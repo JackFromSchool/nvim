@@ -6,7 +6,7 @@ return {
          "nvim-lua/plenary.nvim",
          {
             "nvim-telescope/telescope-fzf-native.nvim",
-            build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release ; cmake --build build --config Release",
+            build = "cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -S. -Bbuild -DCMAKE_BUILD_TYPE=Release ; cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 --build build --config Release",
          },
       },
       config = function()
