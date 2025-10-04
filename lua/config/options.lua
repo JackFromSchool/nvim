@@ -49,11 +49,6 @@ opt.shortmess:append("c")
 
 -- Set terminal
 if vim.fn.has("Unix") == 1 then
-	if vim.fn.executable("fish") == 1 then
-		opt.shell = "fish"
-	else
-		opt.shell = "bash"
-	end
 elseif vim.fn.has("win32") == 1 then
 	opt.shell = "powershell"
 	local powershell_options = {
