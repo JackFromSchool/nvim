@@ -80,6 +80,7 @@ return {
             h = { "clangfmt" },
             hpp = { "clangfmt" },
             rust = { "rustfmt" },
+            tex = { "tex-fmt" },
          },
 
          format_on_save = {
@@ -96,6 +97,7 @@ return {
          "onsails/lspkind.nvim",
       },
       build = "cargo build --release",
+      version = "1.*",
 
       opts = {
          -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
@@ -123,24 +125,10 @@ return {
          completion = {
             documentation = { auto_show = true },
             menu = {
+
                draw = {
                   components = {
                      kind_icon = {
-                        text = function(ctx)
-                           local icon = ctx.kind_icon
-                           if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                              local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
-                              if dev_icon then
-                                 icon = dev_icon
-                              end
-                           else
-                              icon = require("lspkind").symbolic(ctx.kind, {
-                                 mode = "symbol",
-                              })
-                           end
-
-                           return icon .. ctx.icon_gap
-                        end,
 
                         -- Optionally, use the highlight groups from nvim-web-devicons
                         -- You can also add the same function for `kind.highlight` if you want to
@@ -195,5 +183,24 @@ return {
          require("tiny-inline-diagnostic").setup()
          vim.diagnostic.config({ virtual_text = false })
       end,
+   },
+
+   {
+       "bassamsdata/namu.nvim",
+       opts = {
+           global = { },
+           namu_symbols = { -- Specific Module options
+               options = {},
+           },
+       },
+       -- === Suggested Keymaps: ===
+       vim.keymap.set("n", "<leader>ss", ":Namu symbols<cr>", {
+           desc = "Jump to LSP symbol",
+           silent = true,
+       }),
+       vim.keymap.set("n", "<leader>sw", ":Namu workspace<cr>", {
+           desc = "LSP Symbols - Workspace",
+           silent = true,
+       })
    },
 }

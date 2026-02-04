@@ -5,18 +5,37 @@
 
 return {
    {
-      'sainnhe/sonokai',
+      "RRethy/base16-nvim",
       lazy = false,
       priority = 1000,
+   },
+
+   {
+       'tribela/transparent.nvim',
+       event = 'VimEnter',
+       config = true,
+   },
+
+   {
+      'sainnhe/sonokai',
+      lazy = true,
       config = function()
          vim.g.sonokai_transparent_background = 1
-         vim.cmd.colorscheme('sonokai')
       end
    },
 
    {
-      'sainnhe/everforest',
+      "xero/miasma.nvim",
       lazy = true,
+   },
+
+   {
+      'sainnhe/everforest',
+      lazy = false,
+      priority = 1000,
+      config = function()
+         vim.g.everforest_transparent_background = 2
+      end
    },
 
    {

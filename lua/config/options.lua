@@ -69,5 +69,6 @@ end
 vim.filetype.add({
 	extension = {
 		wgsl = "wgsl",
+      mdx = "markdown",
 	},
 })

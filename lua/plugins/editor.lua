@@ -8,7 +8,7 @@ return {
 
    -- Better Movement
    {
-      "ggandor/leap.nvim",
+      url = "https://codeberg.org/andyg/leap.nvim",
       init = function()
          vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
          vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
@@ -24,12 +24,6 @@ return {
             dim = true,
          })
       end,
-   },
-
-   -- Comment Tools
-   {
-      "numToStr/Comment.nvim",
-      opts = {},
    },
 
    -- NOTE: Nice TODO's
@@ -92,4 +86,11 @@ return {
          end, { noremap = true });
       end,
    },
+
+   -- SSH
+   {
+      "nosduco/remote-sshfs.nvim",
+      dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+      opts = {}
+   }
 }

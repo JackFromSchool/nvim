@@ -9,7 +9,7 @@ end
 -- Enable spell checking within files that contain written text
 vim.api.nvim_create_autocmd("FileType", {
 	group = augroup("text_opts"),
-	pattern = { "text", "markdown", "gitcommit", "typst", "plaintex" },
+	pattern = { "text", "markdown", "gitcommit", "typst", "plaintex", "tex" },
 	callback = function()
 		vim.opt_local.spell = true
 		vim.opt_local.wrap = true
