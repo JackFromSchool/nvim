@@ -5,18 +5,30 @@
 
 return {
    {
-      'sainnhe/sonokai',
+      "RRethy/base16-nvim",
       lazy = false,
       priority = 1000,
+   },
+
+   {
+      'sainnhe/sonokai',
+      lazy = true,
       config = function()
          vim.g.sonokai_transparent_background = 1
-         vim.cmd.colorscheme('sonokai')
       end
+   },
+
+   {
+      "xero/miasma.nvim",
+      lazy = true,
    },
 
    {
       'sainnhe/everforest',
       lazy = true,
+      config = function()
+         vim.g.everforest_transparent_background = 2
+      end
    },
 
    {
@@ -26,16 +38,13 @@ return {
 
    {
       'sainnhe/gruvbox-material',
-      lazy=true,
+      lazy=false,
+      priority = 1000,
       config = function()
-        -- Optionally configure and load the colorscheme
-        -- directly inside the plugin declaration.
-      --   vim.g.gruvbox_material_enable_italic = true
-      --   vim.g.gruvbox_material_background = 'hard'
-      --   vim.g.gruvbox_material_visual = 'green background'
-      -- vim.g.gruvbox_material_transparent_background = 1
-        -- vim.cmd([[set background=dark]])
-        -- vim.cmd([[colorscheme gruvbox-material]])
+        vim.g.gruvbox_material_enable_italic = true
+        vim.g.gruvbox_material_background = 'hard'
+        vim.g.gruvbox_material_visual = 'green background'
+        vim.g.gruvbox_material_transparent_background = 2
       end,
    },
 }

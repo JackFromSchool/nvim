@@ -99,11 +99,21 @@ return {
 			scroll = { enabled = true },
 			indent = { enabled = true },
 			lazygit = { enabled = true },
+         image = { 
+            enabled = true,
+            resolve = function(path, src)
+               local api = require "obsidian.api"
+               if api.path_is_note(path) then
+                  return api.resolve_attachment_path(src)
+               end
+            end,
+         },
 		},
 		init = function()
 			vim.api.nvim_create_user_command("Lazygit", function()
 				require("snacks").lazygit.open()
 			end, {})
+
 		end,
 	},
 

@@ -3,7 +3,6 @@
 This is my Neovim config file! I'm not an expert at configuring Neovim, but I've
 found a set of plugins and settings that seems to work for me. Feel free to
 browse, and maybe you'll get some ideas for your own config!
-
 ## Plugins
 
 ### UI
@@ -55,7 +54,6 @@ browse, and maybe you'll get some ideas for your own config!
 
 ### Fun
 
-* duck.nvim - Fun Duck
 * cellular-automaton.nvim - Cellular Automaton for Code
 
 ## Etc.
