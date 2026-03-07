@@ -45,6 +45,28 @@ return {
             desc = "Step Out"
          }
       },
+      config = function()
+         local dap = require("dap")
+
+         dap.adapters.gdb_arm_none_eabi = {
+            type = 'executable',
+            command = 'arm-none-eabi-gdb',
+            args = { "--interpreter=dap", "--eval-command", "set print pretty on" },
+         }
+
+         dap.configurations.c = {
+            {
+               name = "Debug Arm with OpenOCD",
+               type = "gdb_arm_none_eabi",
+               request = "attach",
+               target = "localhost:3333",
+               cwd = "${workspaceFolder}",
+               program = function() 
+                  return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+               end,
+            }
+         }
+      end,
    },
    {
       "jay-babu/mason-nvim-dap.nvim",

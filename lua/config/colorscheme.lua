@@ -4,9 +4,9 @@ local function source_matugen()
    local file, err = io.open(matugen_path, "r")
 
    if err ~= nil then
-      vim.cmd('colorscheme everforest')
+      vim.cmd('colorscheme gruvbox-material')
    else
-      vim.cmd('colorscheme everforest')
+      vim.cmd('colorscheme gruvbox-material')
    end
    
 end
@@ -16,8 +16,6 @@ local function auxiliary_function()
   -- Load the matugen style file to get all the new colors
   source_matugen()
 
-  -- Any other options you wish to set upon matugen reloads can also go here!
-  vim.api.nvim_set_hl(0, "Comment", { italic = true })
 end
 
 vim.api.nvim_create_autocmd("Signal", {

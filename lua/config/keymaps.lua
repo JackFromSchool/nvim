@@ -56,3 +56,8 @@ vim.api.nvim_create_autocmd('TermOpen', {
 keymap("n", "<leader>ww", ":w<CR>", opts)
 keymap("n", "<leader>wa", ":wa<CR>", opts)
 keymap("n", "<leader>wq", ":wq<CR>", opts)
+
+-- Quick Splits
+keymap("n", "<A-s>", ":split<CR>", opts)
+keymap("n", "<A-c>", ":close<CR>", opts)
+keymap("n", "<A-v>", ":vsplit<CR>", opts)
