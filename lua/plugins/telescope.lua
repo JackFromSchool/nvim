@@ -6,13 +6,17 @@ return {
          "nvim-lua/plenary.nvim",
          {
             "nvim-telescope/telescope-fzf-native.nvim",
-            build = "cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -S. -Bbuild -DCMAKE_BUILD_TYPE=Release ; cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 --build build --config Release",
+            build =
+            "cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -S. -Bbuild -DCMAKE_BUILD_TYPE=Release ; cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 --build build --config Release",
          },
       },
       config = function()
          require('telescope').setup {
             defaults = {
                winblend = 0,
+               preview = {
+                  treesitter = false,
+               },
             },
             pickers = {
                find_files = {
@@ -24,12 +28,12 @@ return {
             },
          }
 
-          vim.api.nvim_set_hl(0, 'TelescopeNormal', {bg='none'})
-          vim.api.nvim_set_hl(0, 'TelescopeBorder', {bg='none'})
-          vim.api.nvim_set_hl(0, 'TelescopePromptTitle', {bg='none'})
-          vim.api.nvim_set_hl(0, 'TelescopePromptBorder', {bg='none'})
-          vim.api.nvim_set_hl(0, 'TelescopePreviewTitle', {bg='none'})
-          vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', {bg='none'})
+         vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'none' })
+         vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = 'none' })
+         vim.api.nvim_set_hl(0, 'TelescopePromptTitle', { bg = 'none' })
+         vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { bg = 'none' })
+         vim.api.nvim_set_hl(0, 'TelescopePreviewTitle', { bg = 'none' })
+         vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { bg = 'none' })
       end,
 
       keys = {

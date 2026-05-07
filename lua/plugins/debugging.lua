@@ -54,6 +54,12 @@ return {
             args = { "--interpreter=dap", "--eval-command", "set print pretty on" },
          }
 
+         dap.adapters.gdb = {
+           type = "executable",
+           command = "gdb",
+           args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
+         }
+
          dap.configurations.c = {
             {
                name = "Debug Arm with OpenOCD",
@@ -64,7 +70,16 @@ return {
                program = function() 
                   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
                end,
-            }
+            },
+            {
+               name = "GDB",
+               type = "gdb",
+               request = "launch",
+               cwd = "${workspaceFolder}",
+               program = function() 
+                  return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+               end,
+            },
          }
       end,
    },
@@ -91,5 +106,26 @@ return {
    {
       "igorlfs/nvim-dap-view",
       opts = {}
+   },
+   { 
+      "rcarriga/nvim-dap-ui", 
+      dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} ,
+      config = function()
+         local dap, dapui = require("dap"), require("dapui")
+         dapui.setup()
+
+         dap.listeners.before.attach.dapui_config = function()
+           dapui.open()
+         end
+         dap.listeners.before.launch.dapui_config = function()
+           dapui.open()
+         end
+         dap.listeners.before.event_terminated.dapui_config = function()
+           dapui.close()
+         end
+         dap.listeners.before.event_exited.dapui_config = function()
+           dapui.close()
+         end
+      end
    }
 }

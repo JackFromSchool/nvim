@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 -- Height of the Commandline
-opt.cmdheight = 1
+opt.cmdheight = 0
 
 -- Highlight Searches
 opt.hlsearch = true
@@ -21,6 +21,12 @@ opt.splitright = true
 
 -- Disable line wrap
 opt.wrap = false
+
+-- Set text width and wrap for comments
+opt.textwidth = 80
+opt.formatoptions = opt.formatoptions + 'c'
+
+-- colorcolumn
 
 -- Set Default Tab 3 Spaces
 opt.tabstop = 3
@@ -50,25 +56,26 @@ opt.shortmess:append("c")
 -- Set terminal
 if vim.fn.has("Unix") == 1 then
 elseif vim.fn.has("win32") == 1 then
-	opt.shell = "powershell"
-	local powershell_options = {
-		shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
-		shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-		shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-		shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-		shellquote = "",
-		shellxquote = "",
-	}
+   opt.shell = "powershell"
+   local powershell_options = {
+      shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
+      shellcmdflag =
+      "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+      shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+      shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+      shellquote = "",
+      shellxquote = "",
+   }
 
-	for option, value in pairs(powershell_options) do
-		vim.opt[option] = value
-	end
+   for option, value in pairs(powershell_options) do
+      vim.opt[option] = value
+   end
 end
 
 -- Add filetypes
 vim.filetype.add({
-	extension = {
-		wgsl = "wgsl",
+   extension = {
+      wgsl = "wgsl",
       mdx = "markdown",
-	},
+   },
 })
